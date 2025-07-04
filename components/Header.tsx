@@ -25,14 +25,14 @@ function Header() {
                     {/* <Link href={"/home"} className="cursor-pointer md:w-[10rem] w-[7rem] md:h-[3rem] h-[2rem] bg-black text-white rounded-full font-bold flex items-center justify-center md:text-[1rem] text-xs">
                         <p>Sign up</p>
                     </Link> */}
-                    <SignedOut>
+                    {/* <SignedOut>
                         <div className='cursor-pointer md:w-[10rem] w-[7rem] md:h-[3rem] h-[2rem] bg-black text-white rounded-full font-bold flex items-center justify-center md:text-[1rem] text-xs'>
                             <SignInButton />
                         </div>
                     </SignedOut>
                     <SignedIn>
                         <UserButton />
-                    </SignedIn>
+                    </SignedIn> */}
                 </div>
 
             </div>

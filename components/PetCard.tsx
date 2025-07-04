@@ -1,4 +1,4 @@
-import { Pet } from '@/types/petTypes'
+import { Pet } from '@/types/petData'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'

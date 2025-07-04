@@ -13,6 +13,8 @@ export interface Dog {
   adoptionFee: number;
   imageUrl: string;
   funFact: string;
+  agentName: string; // Optional field for the adoption agent's name
+  agentId: string; // Optional field for the adoption agent's ID
 }
 
 /**
@@ -30,6 +32,8 @@ export interface Cat {
   adoptionFee: number;
   imageUrl: string;
   funFact: string;
+  agentName: string; // Optional field for the adoption agent's name
+  agentId: string; // Optional field for the adoption agent's ID
 }
 
 /**
@@ -47,6 +51,8 @@ export interface Bird {
   adoptionFee: number;
   imageUrl: string;
   funFact: string;
+  agentName: string; // Optional field for the adoption agent's name
+  agentId: string; // Optional field for the adoption agent's ID
 }
 
 /**
@@ -64,6 +70,8 @@ export interface Rabbit {
   adoptionFee: number;
   imageUrl: string;
   funFact: string;
+  agentName: string; // Optional field for the adoption agent's name
+  agentId: string; // Optional field for the adoption agent's ID
 }
 
 

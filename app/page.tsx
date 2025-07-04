@@ -2,10 +2,12 @@
 import Image from "next/image";
 import { Josefin_Sans } from "next/font/google";
 import { ArrowUp, Facebook, Heart, Instagram, Play, Search, Syringe, Twitter } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import petData from "@/data/petData";
-import { Pet, PetData } from "@/types/petTypes";
 import PetCard from "@/components/PetCard";
+import { PetData } from "@/types/petData";
+import queries from "@/graphql/queries";
+
 
 const josefin = Josefin_Sans({
   subsets: ['latin'],
@@ -13,17 +15,56 @@ const josefin = Josefin_Sans({
 })
 
 
+
+
 export default function Home() {
 
-  // Define a type for the categories based on the keys of PetData
+
   type PetCategory = keyof PetData;
-
-
   const categories: PetCategory[] = ['dogs', 'cats', 'rabbits', 'birds'];
   const [activeTab, setActiveTab] = useState<PetCategory>('dogs');
 
+  const [currentPets, setCurrentPets] = useState<PetData[PetCategory]>(petData[activeTab]);
 
-  // const categories = ['dogs', 'cats', 'rabbits', 'birds'];
+
+  // Fetch pets by category
+  useEffect(() => {
+    const fetchPets = async () => {
+      // setPetsLoading(true);
+      // setPetsError(null);
+      try {
+        const response = await fetch('/api/graph', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            query: queries.GET_PETS_BY_CATEGORY_QUERY,
+            variables: { category: activeTab },
+          }),
+        });
+        console.log(activeTab)
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        if (result.errors) {
+          throw new Error(result.errors.map((err: any) => err.message).join(', '));
+        }
+        setCurrentPets(result.data.petsByCategory);
+        console.log("Fetched pets:", result.data.petsByCategory);
+      } catch (error: any) {
+        // setPetsError(error);
+        console.error("Error fetching pets by category:", error);
+      }
+    };
+
+    fetchPets();
+  }, [activeTab]); // Re-fetch when activeTab changes
+
+
   return (
     <div className="">
       <div className="w-full min-h-screen flex flex-col items-center justify-center">
@@ -81,7 +122,7 @@ export default function Home() {
         {/* Pet Cards Display */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full">
           {/* Ensure petData[activeTab] is correctly typed as an array of Pet */}
-          {petData[activeTab].map((pet) => (
+          {currentPets.map((pet) => (
             <PetCard
               key={pet.id}
               {...pet}
@@ -206,7 +247,7 @@ export default function Home() {
               type="email"
               placeholder="Type your Email Address"
               className="flex-1 px-5 py-3 rounded-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4 sm:mb-0 sm:mr-2 w-full sm:w-auto"
-              // defaultValue="youremail@gmail.com" // Pre-filled as in the image
+            // defaultValue="youremail@gmail.com" // Pre-filled as in the image
             />
             <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300">
               Send Now

@@ -1,18 +1,23 @@
-import { ApolloServer } from "apollo-server-micro";
-import { MicroRequest } from "apollo-server-micro/dist/types";
-import { ServerResponse, IncomingMessage } from "http";
-import "reflect-metadata";
+// app/api/graph/route.ts
+import { ApolloServer } from '@apollo/server';
+import { startServerAndCreateNextHandler } from '@as-integrations/next';
+import schema from '@/graphql/schema'; // Your existing schema
+import root from '@/graphql/resolvers';   // Your existing resolvers
 
+// Create an Apollo Server instance
+const apolloServer = new ApolloServer({
+  typeDefs: schema, // Apollo Server expects typeDefs for schema definition
+  resolvers: root,  // Your existing resolvers
+});
 
-const server = new ApolloServer({})
+// Start the server and create the Next.js API route handler
+const handler = startServerAndCreateNextHandler(apolloServer, {
+  context: async (_req, _res) => {
+    // You can add context here, e.g., database connections, authentication info
+    // For now, our resolvers directly use petData
+    return {};
+  },
+});
 
-export const config = {
-  api: { bodyParser: false } // Disable body parsing to allow Apollo Server to handle the request
-}
-
-const startServer = server.start();
-
-export default async function handler(req: MicroRequest, res: ServerResponse<IncomingMessage>) {
-  await startServer;
-  return server.createHandler({ path: "/api/graph" })(req, res);
-}
+// Export the handlers for GET and POST requests
+export { handler as GET, handler as POST };
