@@ -32,3 +32,7 @@ const adoptionAgents = [
     petsResponsibleFor: ['bird4']
   }
 ];
+
+
+
+export default adoptionAgents

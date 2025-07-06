@@ -1,4 +1,4 @@
-export interface AdoptionAgent {
+export default interface AdoptionAgent {
   id: string;
   name: string;
   phone: string;

@@ -1,3 +1,5 @@
+import AdoptionAgent from "./adoptionAgent";
+
 /**
  * Interface for a Dog object.
  */
@@ -13,8 +15,9 @@ export interface Dog {
   adoptionFee: number;
   imageUrl: string;
   funFact: string;
-  agentName: string; // Optional field for the adoption agent's name
   agentId: string; // Optional field for the adoption agent's ID
+  randomPets?: Pet[]; // Optional field for random pets
+  agent?: AdoptionAgent
 }
 
 /**
@@ -32,8 +35,10 @@ export interface Cat {
   adoptionFee: number;
   imageUrl: string;
   funFact: string;
-  agentName: string; // Optional field for the adoption agent's name
   agentId: string; // Optional field for the adoption agent's ID
+  randomPets?: Pet[]; // Optional field for random pets
+  agent?: AdoptionAgent
+
 }
 
 /**
@@ -51,8 +56,9 @@ export interface Bird {
   adoptionFee: number;
   imageUrl: string;
   funFact: string;
-  agentName: string; // Optional field for the adoption agent's name
   agentId: string; // Optional field for the adoption agent's ID
+  randomPets?: Pet[]; // Optional field for random pets
+  agent?: AdoptionAgent
 }
 
 /**
@@ -70,8 +76,9 @@ export interface Rabbit {
   adoptionFee: number;
   imageUrl: string;
   funFact: string;
-  agentName: string; // Optional field for the adoption agent's name
   agentId: string; // Optional field for the adoption agent's ID
+  randomPets?: Pet[]; // Optional field for random pets
+  agent?: AdoptionAgent
 }
 
 

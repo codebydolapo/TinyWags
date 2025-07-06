@@ -14,7 +14,7 @@ const petData: PetData = {
             adoptionFee: 350,
             imageUrl: '/images/dogs/retriever.jpg',
             funFact: 'Can learn over 200 commands.',
-            agentName: 'Tunde Bello',
+
             agentId: 'agent2'
         },
         {
@@ -29,7 +29,6 @@ const petData: PetData = {
             adoptionFee: 400,
             imageUrl: '/images/dogs/corgi.jpg',
             funFact: 'Known for their "sploot" sitting position.',
-            agentName: 'Amaka Okafor',
             agentId: 'agent1'
         },
         {
@@ -44,7 +43,6 @@ const petData: PetData = {
             adoptionFee: 300,
             imageUrl: '/images/dogs/labrador.webp',
             funFact: 'Excellent swimmers and retrievers.',
-            agentName: 'Grace Adeniyi',
             agentId: 'agent3'
         },
         {
@@ -59,7 +57,6 @@ const petData: PetData = {
             adoptionFee: 380,
             imageUrl: '/images/dogs/eskimo.jpg',
             funFact: 'Often mistaken for miniature Samoyeds.',
-            agentName: 'Samuel Eze',
             agentId: 'agent4'
         },
         {
@@ -74,7 +71,6 @@ const petData: PetData = {
             adoptionFee: 450,
             imageUrl: '/images/dogs/tzu.webp',
             funFact: 'Bred to be lap companions for Chinese royalty.',
-            agentName: 'Amaka Okafor',
             agentId: 'agent1'
         },
         {
@@ -89,7 +85,6 @@ const petData: PetData = {
             adoptionFee: 420,
             imageUrl: '/images/dogs/shepherd.jpg',
             funFact: 'Often used in military and police work for their intelligence.',
-            agentName: 'Grace Adeniyi',
             agentId: 'agent3'
         },
         {
@@ -104,7 +99,6 @@ const petData: PetData = {
             adoptionFee: 300,
             imageUrl: '/images/dogs/beagle.webp',
             funFact: 'Beagles were bred for tracking scents and rarely tire of sniffing!',
-            agentName: 'Samuel Eze',
             agentId: 'agent4'
         }
     ],
@@ -121,7 +115,6 @@ const petData: PetData = {
             adoptionFee: 200,
             imageUrl: '/images/cats/siamese.jpg',
             funFact: 'Known for their striking blue almond-shaped eyes.',
-            agentName: 'Amaka Okafor',
             agentId: 'agent1'
         },
         {
@@ -136,7 +129,7 @@ const petData: PetData = {
             adoptionFee: 180,
             imageUrl: '/images/cats/bombay.webp',
             funFact: 'Often described as "velcro cats" due to their clinginess.',
-            agentName: 'Tunde Bello',
+
             agentId: 'agent2'
         },
         {
@@ -151,7 +144,6 @@ const petData: PetData = {
             adoptionFee: 250,
             imageUrl: '/images/cats/coon.jpg',
             funFact: 'One of the largest domesticated cat breeds.',
-            agentName: "Amaka Okafor",
             agentId: "agent1"
         },
         {
@@ -166,7 +158,6 @@ const petData: PetData = {
             adoptionFee: 230,
             imageUrl: '/images/cats/shorthair.jpg',
             funFact: 'Their dense coat feels like plush teddy bear fur.',
-            agentName: "Samuel Eze",
             agentId: "agent4"
         },
         {
@@ -181,7 +172,7 @@ const petData: PetData = {
             adoptionFee: 220,
             imageUrl: '/images/cats/abyssinian.jpg',
             funFact: 'One of the oldest known cat breeds, thought to resemble cats in ancient Egypt.',
-            agentName: 'Tunde Bello',
+
             agentId: 'agent2'
         }
     ],
@@ -198,7 +189,6 @@ const petData: PetData = {
             adoptionFee: 100,
             imageUrl: '/images/birds/cockatiel.jpg',
             funFact: 'Can be taught to mimic speech and songs.',
-            agentName: 'Amaka Okafor',
             agentId: 'agent1'
         },
         {
@@ -213,7 +203,7 @@ const petData: PetData = {
             adoptionFee: 50,
             imageUrl: '/images/birds/budgerigar.jpg',
             funFact: 'One of the most popular pet birds worldwide.',
-            agentName: 'Tunde Bello',
+
             agentId: 'agent2'
         },
         {
@@ -228,7 +218,6 @@ const petData: PetData = {
             adoptionFee: 60,
             imageUrl: '/images/birds/lovebird.jpg',
             funFact: 'Lovebirds often form deep pair bonds with mates or human companions.',
-            agentName: 'Grace Adeniyi',
             agentId: 'agent3'
         },
         {
@@ -243,7 +232,6 @@ const petData: PetData = {
             adoptionFee: 500,
             imageUrl: '/images/birds/parrot.jpg',
             funFact: 'Can learn over 1000 words and understand concepts.',
-            agentName: "Samuel Eze",
             agentId: "agent4"
         }
     ],
@@ -260,7 +248,6 @@ const petData: PetData = {
             adoptionFee: 80,
             imageUrl: '/images/rabbits/holland.jpg',
             funFact: 'One of the smallest lop-eared rabbit breeds.',
-            agentName: "Tunde Bello",
             agentId: "agent2"
         },
         {
@@ -275,7 +262,6 @@ const petData: PetData = {
             adoptionFee: 70,
             imageUrl: '/images/rabbits/rex.jpg',
             funFact: 'Their fur is so soft it feels like velvet.',
-            agentName: 'Grace Adeniyi',
             agentId: 'agent3'
         },
         {
@@ -290,7 +276,6 @@ const petData: PetData = {
             adoptionFee: 65,
             imageUrl: '/images/rabbits/dutch.webp',
             funFact: 'Dutch Rabbits are one of the oldest domestic breeds, known for their distinctive color pattern.',
-            agentName: 'Amaka Okafor',
             agentId: 'agent1'
         },
         {
@@ -305,7 +290,6 @@ const petData: PetData = {
             adoptionFee: 90,
             imageUrl: '/images/rabbits/angora.jpg',
             funFact: "Angoras produce wool that's softer than cashmere.",
-            agentName: 'Samuel Eze',
             agentId: 'agent4'
         }
     ]
