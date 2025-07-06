@@ -23,6 +23,7 @@
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-tooltip": "^5.29.1",
     "reflect-metadata": "^0.2.2",
     "type-graphql": "^2.0.0-rc.2"
   },

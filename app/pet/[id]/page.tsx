@@ -1,6 +1,6 @@
 "use client"
 import { Pet } from "@/types/petData";
-import { ChevronLeft, Heart, IdCardIcon } from "lucide-react";
+import { ChevronLeft, Heart, IdCardIcon } from "lucide-react"; // IdCardIcon is not used currently, but keep it if you plan to use it for an icon
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ import { SignInButton, useUser } from "@clerk/nextjs";
 import AdoptionFormModal from "@/components/AdoptionFormModal";
 import { Josefin_Sans } from "next/font/google";
 import Link from "next/link";
-
+import { Tooltip } from 'react-tooltip'; // Import Tooltip
 
 const josefin = Josefin_Sans({
     subsets: ["latin"],
@@ -147,7 +147,24 @@ const PetDetailPage = () => {
                             <li><strong>Health:</strong> {selectedPet.health}</li>
                             <li><strong>Adoption Fee:</strong> ${selectedPet.adoptionFee}</li>
                             <li><strong>Fun Fact:</strong> {selectedPet.funFact}</li>
-                            <li><strong>Agent:</strong> {selectedPet.agent?.name}</li>
+                            <li>
+                                <strong>Agent: </strong>
+                                {/* Data-tooltip-id and data-tooltip-content or data-tooltip-html are key */}
+                                <span
+                                    data-tooltip-id="agent-tooltip"
+                                    data-tooltip-html={`
+                                        <div class="p-3 bg-white rounded-lg shadow-lg text-sm text-gray-800 border border-gray-200">
+                                            <p class="font-bold mb-1">${selectedPet.agent?.name}</p>
+                                            <p>Phone: ${selectedPet.agent?.phone}</p>
+                                            <p>Email: ${selectedPet.agent?.email}</p>
+                                            <p>Location: ${selectedPet.agent?.location}</p>
+                                        </div>
+                                    `}
+                                    className="cursor-pointer text-blue-600 hover:underline"
+                                >
+                                    {selectedPet.agent?.name}
+                                </span>
+                            </li>
                         </ul>
                     </section>
                 </div>
@@ -169,10 +186,9 @@ const PetDetailPage = () => {
                 {/* Meet More Pets */}
                 <div className="mt-16">
                     <h3 className="text-2xl font-semibold text-center text-gray-800 mb-6">Meet More Pets</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        {/* Replace with real pet cards */}
-                        {selectedPet.randomPets?.map(({ imageUrl, name, breed, age, id },) => (
-                            <Link key={id} className="bg-white rounded-xl shadow-md overflow-hidden" href={`/pet/${id}`} aria-label={`View profile of ${name}`}>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        {selectedPet.randomPets?.map(({ imageUrl, name, breed, age, id }) => (
+                            <Link key={id} className="bg-white rounded-xl shadow-md overflow-hidden transform transition-transform duration-200 hover:scale-105 hover:shadow-xl" href={`/pet/${id}`} aria-label={`View profile of ${name}`}>
                                 <div className="aspect-[4/3] relative">
                                     <Image src={imageUrl} alt="Sample Pet" fill className="object-cover" unoptimized />
                                 </div>
@@ -191,6 +207,9 @@ const PetDetailPage = () => {
                 onClose={() => setIsModalOpen(false)}
                 petName={selectedPet.name}
             />
+
+            {/* Tooltip component must be rendered */}
+            <Tooltip id="agent-tooltip" place="right" className="custom-tooltip" />
         </div>
     );
 };
