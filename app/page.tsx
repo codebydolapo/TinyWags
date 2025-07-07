@@ -27,12 +27,15 @@ export default function Home() {
 
   const [currentPets, setCurrentPets] = useState<PetData[PetCategory]>(petData[activeTab]);
 
+  // Add these to your state
+  const [petsLoading, setPetsLoading] = useState(true);
+  const [petsError, setPetsError] = useState<Error | null>(null);
 
   // Fetch pets by category
   useEffect(() => {
     const fetchPets = async () => {
-      // setPetsLoading(true);
-      // setPetsError(null);
+      setPetsLoading(true);
+      setPetsError(null);
       try {
         const response = await fetch('/api/graph', {
           method: 'POST',
@@ -57,13 +60,17 @@ export default function Home() {
         setCurrentPets(result.data.petsByCategory);
         console.log("Fetched pets:", result.data.petsByCategory);
       } catch (error: any) {
-        // setPetsError(error);
+        setPetsError(error); // Set error if fetch fails
         console.error("Error fetching pets by category:", error);
+      } finally {
+        setPetsLoading(false); // Always set loading to false after fetch (success or error)
       }
     };
 
     fetchPets();
   }, [activeTab]); // Re-fetch when activeTab changes
+
+
 
 
   return (
@@ -76,7 +83,7 @@ export default function Home() {
           <Link className='cursor-pointer md:w-[10rem] w-[7rem] md:h-[3rem] h-[2rem] bg-black text-white rounded-full font-bold flex items-center justify-center md:text-[1rem] text-xs' href="/about">
             Read More
           </Link>
-          <Link className='cursor-pointer md:min-w-[10rem] min-w-[7rem] md:h-[3rem] h-[2rem] text-black rounded-full font-bold flex items-center justify-center md:text-[1rem] text-xs shadow-md px-4' href = "/donations">
+          <Link className='cursor-pointer md:min-w-[10rem] min-w-[7rem] md:h-[3rem] h-[2rem] text-black rounded-full font-bold flex items-center justify-center md:text-[1rem] text-xs shadow-md px-4' href="/donations">
             <HandCoins className="text-black size-7 mx-2" />
             Make Donation
           </Link>
@@ -121,15 +128,27 @@ export default function Home() {
         </div>
 
         {/* Pet Cards Display */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full">
-          {/* Ensure petData[activeTab] is correctly typed as an array of Pet */}
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full">
           {currentPets.map((pet) => (
             <PetCard
               key={pet.id}
               {...pet}
             />
           ))}
-        </div>
+        </div> */}
+        {petsLoading ? (
+          <p>Loading pets...</p>
+        ) : petsError ? (
+          <p className="text-red-500">Error: {petsError.message}</p>
+        ) : currentPets.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full">
+            {currentPets.map((pet) => (
+              <PetCard key={pet.id} {...pet} />
+            ))}
+          </div>
+        ) : (
+          <p>No pets available in this category.</p>
+        )}
       </div>
 
       <div className="w-full h-[70vh] md:pt-0 pt-10 flex md:flex-row flex-col items-center justify-center">
@@ -238,7 +257,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
+
     </div>
   );
 }
