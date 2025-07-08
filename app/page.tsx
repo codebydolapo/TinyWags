@@ -106,7 +106,7 @@ export default function Home() {
       {/*  */}
 
       <div className="min-h-screen bg-gray-100 p-4 flex flex-col items-center md:mt-10 mt-5">
-        <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-8 mt-4 text-center">
+        <h1 className="text-xl md:text-4xl font-bold text-gray-800 mb-8 mt-4 text-center">
           Pets Available For Adoption Nearby
         </h1>
 
