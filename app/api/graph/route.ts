@@ -13,7 +13,9 @@ const apolloServer = new ApolloServer({
 
 
 const handler = startServerAndCreateNextHandler(apolloServer, {
-  context: async (_req, _res) => {
+  context: async (
+    // _req, _res
+) => {
     // Context can be added here, e.g., database connections, authentication info
     // For now resolvers directly use petData
     return {};

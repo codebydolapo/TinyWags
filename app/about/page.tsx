@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Josefin_Sans } from "next/font/google";
-import { Heart, PawPrint, Home, Handshake, Lightbulb, ArrowUp, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Heart, Home, Handshake, Lightbulb} from 'lucide-react';
 import { useRouter } from 'next/navigation'; // For scroll to top or other navigation
 
 const josefin = Josefin_Sans({
@@ -106,7 +106,7 @@ const AboutUsPage = () => {
                             TinyWags began with a simple idea: to make a difference in the lives of abandoned and neglected animals. Founded by a small group of passionate animal lovers in 20XX, we started as a local initiative to foster pets and connect them with caring individuals.
                         </p>
                         <p className="text-lg text-gray-700 leading-relaxed">
-                            Over the years, with the unwavering support of our volunteers, donors, and partners, we've grown into a thriving community. We've expanded our reach, improved our facilities, and, most importantly, facilitated thousands of successful adoptions, bringing joy to countless families and pets.
+                            Over the years, with the unwavering support of our volunteers, donors, and partners, we&apos;ve grown into a thriving community. We&apos;ve expanded our reach, improved our facilities, and, most importantly, facilitated thousands of successful adoptions, bringing joy to countless families and pets.
                         </p>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ const AboutUsPage = () => {
             <section className="py-16 px-4 sm:px-8 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">Join Our Cause</h2>
                 <p className="text-lg sm:text-xl max-w-3xl mx-auto mb-8">
-                    Whether you're looking to adopt, volunteer your time, or make a donation, your involvement makes a tangible difference in the lives of our furry friends.
+                    Whether you&apos;re looking to adopt, volunteer your time, or make a donation, your involvement makes a tangible difference in the lives of our furry friends.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-6">
                     <button

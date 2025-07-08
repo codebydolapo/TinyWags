@@ -1,6 +1,6 @@
 "use client"
 import { Pet } from "@/types/petData";
-import { ChevronLeft, Heart, IdCardIcon } from "lucide-react"; // IdCardIcon is not used currently, but keep it if you plan to use it for an icon
+import { ChevronLeft, Heart } from "lucide-react"; 
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ import { SignInButton, useUser } from "@clerk/nextjs";
 import AdoptionFormModal from "@/components/AdoptionFormModal";
 import { Josefin_Sans } from "next/font/google";
 import Link from "next/link";
-import { Tooltip } from 'react-tooltip'; // Import Tooltip
+import { Tooltip } from 'react-tooltip'; 
 
 const josefin = Josefin_Sans({
     subsets: ["latin"],
@@ -27,7 +27,7 @@ const PetDetailPage = () => {
     const [petError, setPetError] = useState<Error | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const { user, isLoaded, isSignedIn } = useUser();
+    const { isLoaded, isSignedIn } = useUser();
 
     useEffect(() => {
         const fetchPetDetail = async () => {

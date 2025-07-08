@@ -1,20 +1,14 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Josefin_Sans } from "next/font/google";
-import { Heart, PawPrint, ShieldCheck, Home, Utensils, Syringe, Facebook, Twitter, Instagram, ArrowUp } from 'lucide-react';
-import { useRouter } from 'next/navigation'; // For back button if needed, or just for general navigation
+import { Heart, PawPrint, ShieldCheck, Home, Utensils, Syringe } from 'lucide-react';
 
-const josefin = Josefin_Sans({
-    subsets: ['latin'],
-    weight: ['400', '600', '700']
-});
+
 
 const DonationPage = () => {
     const [customAmount, setCustomAmount] = useState('');
     const [selectedTier, setSelectedTier] = useState<number | null>(null);
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-    const router = useRouter(); // Initialize useRouter
 
     const donationTiers = [
         { amount: 25, description: "Provides a warm blanket for a pet." },
@@ -24,7 +18,7 @@ const DonationPage = () => {
     ];
 
     const handleDonateClick = (amount: number | string) => {
-        let finalAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+        const finalAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
 
         if (isNaN(finalAmount) || finalAmount <= 0) {
             alert("Please enter a valid donation amount.");

@@ -5,14 +5,10 @@ import Header from "@/components/Header";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { ApolloWrapper } from './apollo-wrapper';
 import Footer from "@/components/Footer";
 
-const client = new ApolloClient({
-  uri: '/api/graphql', // My local GraphQL API endpoint
-  cache: new InMemoryCache(),
-});
+
 
 const poppins = Poppins({
   subsets: ['latin'],

@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import { Josefin_Sans } from "next/font/google";
-import { ArrowUp, Facebook, Heart, Instagram, Play, Search, Syringe, Twitter, HandCoins } from "lucide-react";
+import { Heart, Search, Syringe, HandCoins } from "lucide-react";
 import { useEffect, useState } from "react";
 import petData from "@/data/petData";
 import PetCard from "@/components/PetCard";
@@ -158,7 +158,7 @@ export default function Home() {
               <Search className="text-green-500 size-7 mx-4" />
               <div className="flex-1 flex flex-col">
                 <p className="font-semibold">Search</p>
-                <p className="text-xs">Adopt a dog who's right for you. Simply pick one from the selections above and get started</p>
+                <p className="text-xs">Adopt a dog who&apos;s right for you. Simply pick one from the selections above and get started</p>
               </div>
             </div>
           </div>
@@ -241,12 +241,12 @@ export default function Home() {
 
           {/* Testimonial Content */}
           <div className="md:w-1/2 p-8 flex flex-col justify-center">
-            <div className="text-purple-500 text-5xl font-bold mb-4">"</div> {/* Opening quote */}
+            <div className="text-purple-500 text-5xl font-bold mb-4">&quot;</div> {/* Opening quote */}
             <h3 className="md:text-3xl text-xl font-bold text-gray-900 mb-4">Absolutely wonderful!</h3>
             <p className="text-gray-700 md:text-lg text-sm leading-relaxed md:mb-6 mb-3">
               I am very happy to adopt Olivia. I was fortunate enough to find her on The Pet Adoptions website-
             </p>
-            <div className="text-pink-500 text-5xl font-bold self-end mt-auto">"</div> {/* Closing quote */}
+            <div className="text-pink-500 text-5xl font-bold self-end mt-auto">&quot;</div> {/* Closing quote */}
             {/* Pagination dots */}
             <div className="flex justify-center md:justify-start mt-6 space-x-2">
               <span className="w-2 h-2 bg-gray-800 rounded-full"></span>
