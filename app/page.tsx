@@ -77,7 +77,7 @@ export default function Home() {
     <div className="">
       <div className="w-full md:min-h-screen min-h-[50vh] flex flex-col items-center justify-center">
         <div className="md:max-w-[70vw] max-w-full ">
-          <h1 className={`md:text-[5rem] text-5xl font-bold text-center text-black md:my-4 my-0 ${josefin.className}`}>Unwavering pet care for your furry friend, all day every day!</h1>
+          <h1 className={`md:text-[5rem] text-3xl font-bold text-center text-black md:my-4 my-0 md:tracking-wide md:leading-24 ${josefin.className}`}>Unwavering pet care for your furry friend, all day every day!</h1>
         </div>
         <div className="flex space-x-5 my-8">
           <Link className='cursor-pointer md:w-[10rem] w-[7rem] md:h-[3rem] h-[2rem] bg-black text-white rounded-full font-bold flex items-center justify-center md:text-[1rem] text-xs' href="/about">
@@ -106,16 +106,16 @@ export default function Home() {
       {/*  */}
 
       <div className="min-h-screen bg-gray-100 p-4 flex flex-col items-center md:mt-10 mt-5">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 mt-4 text-center">
+        <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-8 mt-4 text-center">
           Pets Available For Adoption Nearby
         </h1>
 
         {/* Category Tabs */}
-        <div className="flex justify-center bg-white p-2 rounded-full shadow-lg mb-8">
+        <div className="flex justify-center bg-white p-2 rounded-full shadow-lg mb-8 ">
           {categories.map((category) => (
             <button
               key={category}
-              className={`px-6 py-2 rounded-full text-lg capitalize transition-all duration-300 ease-in-out
+              className={`px-6 py-2 rounded-full md:text-lg text-sm capitalize transition-all duration-300 ease-in-out
                 ${activeTab === category
                   ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md'
                   : 'text-gray-700 hover:bg-gray-100'
@@ -151,7 +151,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className="w-full h-[70vh] md:pt-0 pt-10 flex md:flex-row flex-col items-center justify-center">
+      <div className="w-full h-[70vh] md:pt-0 pt-10 md:flex hidden md:flex-row flex-col items-center justify-center">
         <div className="md:w-1/3 w-full h-full flex flex-col">
           <div className="w-full h-1/2 flex items-center md:justify-end justify-center ">
             <div className="flex w-[25rem] items-center justify-center">
@@ -195,7 +195,7 @@ export default function Home() {
         {/* How It Works Cards */}
         <div className="grid grid-cols-3 md:gap-8 gap-auto max-w-5xl w-full mb-16">
           {/* Card 1: Search Pets */}
-          <div className="flex flex-col items-center text-center p-6 rounded-lg">
+          <div className="flex flex-col items-center text-center md:p-6 p-2 rounded-lg">
             <div className="md:w-20 md:h-20 h-12 w-12 rounded-xl bg-purple-100 flex items-center justify-center mb-4">
               <Search className="text-purple-600 md:size-10 size-6" />
             </div>
@@ -204,7 +204,7 @@ export default function Home() {
           </div>
 
           {/* Card 2: Meet */}
-          <div className="flex flex-col items-center text-center p-6 rounded-lg">
+          <div className="flex flex-col items-center text-center md:p-6 p-2 rounded-lg">
             <div className="md:w-20 md:h-20 h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
               {/* Using Heart icon as a placeholder for the paw icon from the image */}
               <Heart className="text-blue-600 md:size-10 size-6 fill-blue-600" />
@@ -214,7 +214,7 @@ export default function Home() {
           </div>
 
           {/* Card 3: Adopt */}
-          <div className="flex flex-col items-center text-center p-6 rounded-lg">
+          <div className="flex flex-col items-center text-center md:p-6 p-2 rounded-lg">
             <div className="md:w-20 md:h-20 h-12 w-12 rounded-xl bg-pink-100 flex items-center justify-center mb-4">
               {/* Using Syringe icon as a placeholder for the hand icon from the image */}
               <Syringe className="text-pink-600 md:size-10 size-6" />
