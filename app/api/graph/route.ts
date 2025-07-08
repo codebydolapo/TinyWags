@@ -13,17 +13,14 @@ const apolloServer = new ApolloServer({
 
 
 const handler = startServerAndCreateNextHandler(apolloServer, {
-  context: async (
-    // _req, _res
-) => {
-    // Context can be added here, e.g., database connections, authentication info
-    // For now resolvers directly use petData
+  context: async (_req, _res) => {
+    
     return {};
   },
 });
 
 // Export the handlers for GET and POST requests
 export { 
-    // handler as GET, 
+    handler as GET, 
     handler as POST 
 };
