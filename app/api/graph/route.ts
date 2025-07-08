@@ -1,5 +1,5 @@
 // app/api/graph/route.ts
-import { ApolloServer, BaseContext } from '@apollo/server';
+import { ApolloServer } from '@apollo/server';
 import { startServerAndCreateNextHandler } from '@as-integrations/next';
 
 import schema from '@/graphql/schema'; 
