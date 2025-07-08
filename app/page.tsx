@@ -89,13 +89,13 @@ export default function Home() {
           </Link>
         </div>
         <div className="w-full flex items-center justify-center md:mt-10 mt-5 space-x-5">
-          <div className="w-[20vw] h-[20vw] rounded-full bg-pink-300 relative flex items-center justify-center">
+          <div className="md:w-[20vw] md:h-[20vw] w-[27vw] h-[27vw] rounded-full bg-pink-300 relative flex items-center justify-center">
             <Image alt="" src="/images/landing1.png" width={0} height={0} className='rounded-full w-[90%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' unoptimized />
           </div>
-          <div className="w-[20vw] h-[20vw] rounded-tl-[10vw] rounded-br-[10vw] bg-green-300 relative flex items-center justify-center">
+          <div className="md:w-[20vw] md:h-[20vw] w-[27vw] h-[27vw] rounded-tl-[10vw] rounded-br-[10vw] bg-green-300 relative flex items-center justify-center">
             <Image alt="" src="/images/landing2.png" width={0} height={0} className='rounded-full w-[90%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' unoptimized />
           </div>
-          <div className="w-[20vw] h-[20vw] rounded-t-full bg-purple-300 relative flex items-center justify-center">
+          <div className="md:w-[20vw] md:h-[20vw] w-[27vw] h-[27vw] rounded-t-full bg-purple-300 relative flex items-center justify-center">
             <Image alt="" src="/images/landing3.png" width={0} height={0} className='rounded-full w-[90%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' unoptimized />
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function Home() {
           {categories.map((category) => (
             <button
               key={category}
-              className={`px-6 py-2 rounded-full md:text-lg text-sm capitalize transition-all duration-300 ease-in-out
+              className={`md:px-6 px-4 py-2 rounded-full md:text-lg text-xs capitalize transition-all duration-300 ease-in-out
                 ${activeTab === category
                   ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md'
                   : 'text-gray-700 hover:bg-gray-100'
