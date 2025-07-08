@@ -23,4 +23,7 @@ const handler = startServerAndCreateNextHandler(apolloServer, {
 });
 
 // Export the handlers for GET and POST requests
-export { handler as GET, handler as POST };
+export { 
+    // handler as GET, 
+    handler as POST 
+};
