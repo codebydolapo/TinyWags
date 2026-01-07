@@ -23,32 +23,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    // <ApolloProvider client={client}>
-        <ClerkProvider
-          appearance={{
-            cssLayerName: 'clerk',
-          }}
-          publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-        >
-
-        <html lang="en" className="w-[100vw] no-scrollbar scrollbar-hidden overflow-x-hidden ">
-          <body
-            className={`${poppins.className} max-w-[100vw] overflow-x-hidden `}
-          >
-            <Header />
-            <div className="md:px-4 px-2">
-              <ApolloWrapper>
-              {children}
-              </ApolloWrapper>
-            </div>
-            <Footer/>
-          </body>
-        </html>
+    <ClerkProvider
+      appearance={{ cssLayerName: 'clerk' }}
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    >
+      <html lang="en" className="scroll-smooth">
+        <body className={`${poppins.className} antialiased bg-white text-gray-900 overflow-x-hidden`}>
+          <Header />
+          <ApolloWrapper>
+            {/* Removed the extra padding container here to allow full-width sections */}
+            {children}
+          </ApolloWrapper>
+          <Footer />
+        </body>
+      </html>
     </ClerkProvider>
-      // </ApolloProvider>
   );
 }

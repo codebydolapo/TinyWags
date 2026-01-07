@@ -2,8 +2,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { Josefin_Sans } from "next/font/google";
-import { Heart, Home, Handshake, Lightbulb} from 'lucide-react';
-import { useRouter } from 'next/navigation'; // For scroll to top or other navigation
+import { Heart, Home, Handshake, Lightbulb, ChevronDown, ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const josefin = Josefin_Sans({
     subsets: ['latin'],
@@ -11,131 +11,173 @@ const josefin = Josefin_Sans({
 });
 
 const AboutUsPage = () => {
-    const router = useRouter(); // Initialize useRouter for potential navigation
+    const router = useRouter();
 
     return (
-        <div className={`min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 text-gray-800 ${josefin.className}`}>
+        <main className={`min-h-screen bg-white text-gray-800 ${josefin.className}`}>
             {/* Hero Section */}
-            <header className="relative w-full h-[65vh] md:h-[75vh] flex items-center justify-center text-white overflow-hidden">
+            <header className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/images/banner1.jpg" // Placeholder image for hero
-                    alt="Happy pets and people"
-                    layout="fill"
-                    objectFit="cover"
-                    className="absolute inset-0 z-0 "
+                    src="/images/banner1.jpg"
+                    alt="Our Passion"
+                    fill
+                    className="object-cover brightness-[0.65]"
+                    priority
                     unoptimized
                 />
-                <div className="relative z-10 text-center p-4 bg-[#0000005b] bg-opacity-40 rounded-xl max-w-4xl mx-auto shadow-lg">
-                    <h1 className="text-3xl md:text-6xl font-bold md:mb-8 mb-4 leading-tight">
-                        Our Passion, Our Purpose: The TinyWags Story
+                <div className="relative z-10 text-center px-6 max-w-4xl animate-fade-in-up">
+                    <span className="bg-purple-600/20 text-purple-200 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 inline-block backdrop-blur-md">
+                        Established 2002
+                    </span>
+                    <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-[1.1]">
+                        Our Passion, Our Purpose: <br/> The <span className="text-purple-400">TinyWags</span> Story
                     </h1>
-                    <p className="text-xs md:text-sm font-light">
-                        Dedicated to connecting loving families with pets in need, we believe every animal deserves a chance at a happy home.
+                    <p className="text-lg md:text-xl text-gray-200 font-light max-w-2xl mx-auto">
+                        Dedicated to connecting loving families with pets in need. We believe every animal deserves a chance at a happy home.
                     </p>
+                </div>
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/50">
+                    <ChevronDown size={32} />
                 </div>
             </header>
 
             {/* Mission Section */}
-            <section className="py-16 px-4 sm:px-8 bg-white shadow-lg">
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="text-center md:text-left">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-purple-800 mb-6">Our Mission</h2>
-                        <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                            At TinyWags, our mission is simple yet profound: to facilitate the loving adoption of pets by connecting them with compassionate individuals and families. We strive to create a world where every pet has a safe, nurturing, and permanent home, free from neglect and abandonment.
-                        </p>
-                        <p className="text-lg text-gray-700 leading-relaxed">
-                            We are committed to promoting responsible pet ownership, advocating for animal welfare, and building a community that cherishes the bond between humans and animals.
-                        </p>
+            <section className="py-24 px-6 md:px-12 bg-white">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div className="space-y-6">
+                        <div className="inline-block p-3 bg-purple-50 rounded-2xl text-purple-600">
+                            <Heart size={32} />
+                        </div>
+                        <h2 className="text-4xl font-bold text-gray-900">Our Mission</h2>
+                        <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+                            <p>
+                                At TinyWags, our mission is simple yet profound: to facilitate the loving adoption of pets by connecting them with compassionate individuals and families.
+                            </p>
+                            <p className="font-medium text-purple-700">
+                                We strive to create a world where every pet has a safe, nurturing, and permanent home, free from neglect and abandonment.
+                            </p>
+                        </div>
                     </div>
-                    <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl">
-                        <Image
-                            src="/images/aboutMission.jpg" // Placeholder image
-                            alt="Mission"
-                            layout="fill"
-                            objectFit="cover"
-                            className="transition-transform duration-500 hover:scale-105"
-                            unoptimized
-                        />
+                    <div className="relative group">
+                        <div className="absolute -inset-4 bg-purple-100 rounded-[2rem] -rotate-3 transition-transform group-hover:rotate-0"></div>
+                        <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden shadow-2xl">
+                            <Image
+                                src="/images/aboutMission.jpg"
+                                alt="Mission"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                unoptimized
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Our Values Section */}
-            <section className="py-16 px-4 sm:px-8 bg-purple-50">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center">Our Core Values</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <Heart size={50} className="text-pink-500 mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">Compassion</h3>
-                        <p className="text-gray-700">Every animal is treated with kindness, empathy, and respect.</p>
+            {/* Core Values Section */}
+            <section className="py-24 px-6 md:px-12 bg-gray-50/50 border-y border-gray-100">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Core Values</h2>
+                        <div className="h-1.5 w-20 bg-purple-600 mx-auto rounded-full"></div>
                     </div>
-                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <Handshake size={50} className="text-blue-500 mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">Integrity</h3>
-                        <p className="text-gray-700">We operate with honesty and transparency in all our actions.</p>
-                    </div>
-                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <Home size={50} className="text-green-500 mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">Commitment</h3>
-                        <p className="text-gray-700">Dedicated to finding lifelong homes and ensuring pet well-being.</p>
-                    </div>
-                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <Lightbulb size={50} className="text-yellow-500 mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">Education</h3>
-                        <p className="text-gray-700">Empowering adopters with knowledge for responsible pet care.</p>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <ValueCard 
+                            icon={<Heart size={36} className="text-pink-500" />}
+                            title="Compassion"
+                            desc="Every animal is treated with kindness, empathy, and respect."
+                            borderColor="border-pink-100"
+                        />
+                        <ValueCard 
+                            icon={<Handshake size={36} className="text-blue-500" />}
+                            title="Integrity"
+                            desc="We operate with honesty and transparency in all our actions."
+                            borderColor="border-blue-100"
+                        />
+                        <ValueCard 
+                            icon={<Home size={36} className="text-green-500" />}
+                            title="Commitment"
+                            desc="Dedicated to finding lifelong homes and ensuring pet well-being."
+                            borderColor="border-green-100"
+                        />
+                        <ValueCard 
+                            icon={<Lightbulb size={36} className="text-yellow-500" />}
+                            title="Education"
+                            desc="Empowering adopters with knowledge for responsible pet care."
+                            borderColor="border-yellow-100"
+                        />
                     </div>
                 </div>
             </section>
 
             {/* Our Story Section */}
-            <section className="py-16 px-4 sm:px-8 bg-white shadow-lg">
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl order-2 md:order-1">
-                        <Image
-                            src="/images/aboutJourney.jpg" // Placeholder image
-                            alt="Our Story"
-                            layout="fill"
-                            objectFit="cover"
-                            className="transition-transform duration-500 hover:scale-105"
-                            unoptimized
-                        />
+            <section className="py-24 px-6 md:px-12 bg-white">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div className="relative order-2 md:order-1">
+                        <div className="absolute -inset-4 bg-pink-50 rounded-full blur-3xl opacity-60"></div>
+                        <div className="relative aspect-square md:aspect-auto md:h-[500px] rounded-[3rem] overflow-hidden shadow-xl">
+                            <Image
+                                src="/images/aboutJourney.jpg"
+                                alt="Our Story"
+                                fill
+                                className="object-cover"
+                                unoptimized
+                            />
+                        </div>
                     </div>
-                    <div className="text-center md:text-left order-1 md:order-2">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-pink-800 mb-6">Our Journey So Far</h2>
-                        <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                            TinyWags began with a simple idea: to make a difference in the lives of abandoned and neglected animals. Founded by a small group of passionate animal lovers in 20XX, we started as a local initiative to foster pets and connect them with caring individuals.
-                        </p>
-                        <p className="text-lg text-gray-700 leading-relaxed">
-                            Over the years, with the unwavering support of our volunteers, donors, and partners, we&apos;ve grown into a thriving community. We&apos;ve expanded our reach, improved our facilities, and, most importantly, facilitated thousands of successful adoptions, bringing joy to countless families and pets.
-                        </p>
+                    <div className="space-y-6 order-1 md:order-2">
+                        <h2 className="text-4xl font-bold text-gray-900">Our Journey So Far</h2>
+                        <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+                            <p>
+                                TinyWags began with a simple idea: to make a difference in the lives of abandoned and neglected animals. Founded by a small group of passionate animal lovers in 20XX, we started as a local initiative to foster pets.
+                            </p>
+                            <p>
+                                Over the years, we&apos;ve grown into a thriving community. We&apos;ve facilitated thousands of successful adoptions, bringing joy to countless families and pets across the country.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Call to Action Section */}
-            <section className="py-16 px-4 sm:px-8 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">Join Our Cause</h2>
-                <p className="text-lg sm:text-xl max-w-3xl mx-auto mb-8">
-                    Whether you&apos;re looking to adopt, volunteer your time, or make a donation, your involvement makes a tangible difference in the lives of our furry friends.
-                </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-6">
-                    <button
-                        onClick={() => router.push('/home')} 
-                        className="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-                    >
-                        Adopt a Pet
-                    </button>
-                    <button
-                        onClick={() => router.push('/donate')} 
-                        className="bg-white text-pink-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-                    >
-                        Donate Now
-                    </button>
+            {/* Refined CTA Section */}
+            <section className="py-20 px-6">
+                <div className="max-w-5xl mx-auto bg-gradient-to-br from-purple-600 to-pink-600 rounded-[2.5rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl shadow-purple-200">
+                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+                    <div className="relative z-10">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6">Want to make a difference?</h2>
+                        <p className="text-lg md:text-xl text-purple-50 mb-10 max-w-2xl mx-auto">
+                            Whether you're looking to adopt, volunteer, or donate, your involvement saves lives. Join our community today.
+                        </p>
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                            <button
+                                onClick={() => router.push('/home')} 
+                                className="bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-50 hover:scale-105 transition-all flex items-center justify-center gap-2 group"
+                            >
+                                Adopt a Pet <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                            </button>
+                            <button
+                                onClick={() => router.push('/donate')} 
+                                className="bg-purple-700/30 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 hover:scale-105 transition-all"
+                            >
+                                Donate Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
-
-        </div>
+        </main>
     );
 };
+
+// Sub-component for Value Cards
+function ValueCard({ icon, title, desc, borderColor }: { icon: React.ReactNode, title: string, desc: string, borderColor: string }) {
+    return (
+        <div className={`p-8 bg-white rounded-3xl border-2 ${borderColor} shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300`}>
+            <div className="mb-6">{icon}</div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
+            <p className="text-gray-600 leading-relaxed">{desc}</p>
+        </div>
+    );
+}
 
 export default AboutUsPage;
